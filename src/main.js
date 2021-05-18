@@ -1,20 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import Vuex from 'vuex'
-import router from './router'
-import Main from './components/layout/main/Main.vue'
+import Vue from "vue";
+import App from "./App.vue";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import Vuex from "vuex";
+import axios from "axios";
+import router from "./router";
+import { VueMaskDirective, VueMaskFilter } from "v-mask";
+import Main from "./components/layout/main/Main.vue";
 
-Vue.config.productionTip = false
-Vue.use(Vuex)
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
+Vue.directive("mask", VueMaskDirective);
+Vue.filter("VMask", VueMaskFilter);
 
-Vue.component('Main', Main)
+Vue.use(Vuex);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
+
+Vue.component("Main", Main);
+
+Vue.prototype.$axios = axios;
+Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");
