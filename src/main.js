@@ -5,11 +5,14 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vuex from 'vuex'
 import router from './router'
+import Main from './components/layout/main/Main.vue'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+
+Vue.component('Main', Main)
 
 new Vue({
   router,
