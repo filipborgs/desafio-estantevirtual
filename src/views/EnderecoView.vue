@@ -2,7 +2,7 @@
   <Main>
     <template v-slot:title> Endereços </template>
     <template v-slot:actions>
-      <b-button class="text-center" :to="{ name: 'cadastrar_endereco' }"
+      <b-button class="text-center" :to="{ name: 'cadastrar_endereco' }" variant="success"
         >Cadastrar Endereço</b-button
       >
     </template>

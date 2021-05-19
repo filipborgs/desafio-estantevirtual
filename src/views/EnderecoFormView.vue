@@ -1,9 +1,11 @@
 <template>
   <Main>
-    <template v-slot:title> Cadastrar Endereço </template>
+    <template v-slot:title>
+      {{ editMode ? "Editar" : "Cadastrar" }} Endereço
+    </template>
 
     <template v-slot:actions>
-      <b-button>Cancelar</b-button>
+      <b-button :to="{ name: 'enderecos' }">Cancelar</b-button>
     </template>
 
     <template v-slot:body>
@@ -26,6 +28,12 @@ export default {
   methods: {
     onSubmit() {},
     onReset() {},
+  },
+
+  computed: {
+    editMode() {
+      return /editar/.test(this.$route.name);
+    },
   },
 };
 </script>
