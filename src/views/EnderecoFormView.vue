@@ -9,25 +9,34 @@
     </template>
 
     <template v-slot:body>
-      <b-form @submit="onSubmit" @reset="onReset"> <EnderecoForm /> </b-form>
+      <EnderecoForm />
     </template>
 
     <template v-slot:footer>
-      <b-button block variant="primary">Salvar</b-button>
+      <b-button @click="submit" block variant="primary">Salvar</b-button>
     </template>
   </Main>
 </template>
 
 <script>
 import EnderecoForm from "../components/endereco/EnderecoForm";
+import EnderecoMixin from "../mixins/address";
 export default {
   components: {
     EnderecoForm,
   },
+  mixins: [EnderecoMixin],
 
   methods: {
-    onSubmit() {},
-    onReset() {},
+    async submit() {
+      if (!this.address.cep) {
+        alert("Insira um CEP");
+        return;
+      }
+      const teste = await this.saveAddress(this.$route.params.pos);
+      console.log(teste);
+      console.log(this.addresses);
+    },
   },
 
   computed: {

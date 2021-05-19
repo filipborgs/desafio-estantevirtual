@@ -12,13 +12,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(adr, index) in [...getAddres, ...getAddres]" :key="index">
+      <tr v-for="(adr, index) in addresses" :key="index">
         <th scope="row">{{ index + 1 }}</th>
-        <td>{{adr.logradouro}}</td>
-        <td>{{adr.bairro}}</td>
-        <td>{{adr.localidade}}</td>
-        <td>{{adr.cep}}</td>
-        <td>{{adr.uf}}</td>
+        <td>{{ adr.logradouro }}</td>
+        <td>{{ adr.bairro }}</td>
+        <td>{{ adr.localidade }}</td>
+        <td>{{ adr.cep }}</td>
+        <td>{{ adr.uf }}</td>
         <td></td>
       </tr>
     </tbody>
@@ -26,25 +26,10 @@
 </template>
 
 <script>
+import EnderecoMixin from "../../mixins/address";
+
 export default {
-  computed: {
-    getAddres() {
-      return [
-        {
-          cep: "44021-215",
-          logradouro: "Avenida Eduardo Fróes da Mota",
-          complemento: "",
-          bairro: "Sobradinho",
-          localidade: "Feira de Santana",
-          uf: "BA",
-          ibge: "2910800",
-          gia: "",
-          ddd: "75",
-          siafi: "3515",
-        },
-      ];
-    },
-  },
+  mixins: [EnderecoMixin],
 };
 </script>
 

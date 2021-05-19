@@ -1,10 +1,12 @@
 export default () => ({
   address: {
-    uf: "BA",
+    uf: null,
     logradouro: null,
     cep: null,
     bairro: null,
     localidade: null,
     complemento: null,
   },
+
+  addresses: JSON.parse(localStorage.getItem("addresses")) || [],
 });
