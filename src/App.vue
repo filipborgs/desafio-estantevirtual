@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import Navbar from './components/layout/navbar/Navbar.vue'
+import Navbar from "./components/layout/navbar/Navbar.vue";
 
 export default {
-  components:{
-    Navbar
-  }
-}
+  components: {
+    Navbar,
+  },
+};
 </script>
 
 <style>
