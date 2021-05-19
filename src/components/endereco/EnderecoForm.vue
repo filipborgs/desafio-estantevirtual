@@ -82,23 +82,20 @@
 </template>
 
 <script>
+import addressMixing from "../../mixins/address";
+
 export default {
+  mixins: [addressMixing],
+
   async mounted() {
     const { data } = await this.$axios.get(
       "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
     );
     this.ufs = [{ sigla: null, nome: "Selecione uma UF" }, ...data];
   },
+
   data() {
     return {
-      address: {
-        uf: "BA",
-        logradouro: null,
-        cep: null,
-        bairro: null,
-        localidade: null,
-        complemento: null,
-      },
       ufs: [],
     };
   },

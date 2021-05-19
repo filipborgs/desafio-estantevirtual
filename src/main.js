@@ -8,6 +8,7 @@ import axios from "axios";
 import router from "./router";
 import { VueMaskDirective, VueMaskFilter } from "v-mask";
 import Main from "./components/layout/main/Main.vue";
+import store from "./store";
 
 Vue.directive("mask", VueMaskDirective);
 Vue.filter("VMask", VueMaskFilter);
@@ -23,5 +24,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount("#app");
