@@ -18,7 +18,12 @@ const routes = [
   {
     path: '/enderecos',
     name: 'enderecos',
-    component: () => import(/* webpackChunkName: "about" */ '../views/EnderecoView.vue')
+    component: () => import(/* webpackChunkName: "enderecosview" */ '../views/EnderecoView.vue')
+  },
+  {
+    path: '/endereco/cadastrar',
+    name: 'cadastrar_endereco',
+    component: () => import(/* webpackChunkName: "enderecoformview" */ '../views/EnderecoFormView.vue')
   }
 ]
 

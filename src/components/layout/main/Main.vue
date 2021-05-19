@@ -18,7 +18,9 @@
     </b-card-text>
 
     <div class="card-footer">
-      <slot name="footer"></slot>
+      <div class="text-center">
+        <slot name="footer"></slot>
+      </div>
     </div>
   </b-card>
 </template>
