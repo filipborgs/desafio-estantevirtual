@@ -1,35 +1,37 @@
 <template>
-  <table class="table">
-    <thead class="thead">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Logradouro</th>
-        <th scope="col">Bairro</th>
-        <th scope="col">Cidade</th>
-        <th scope="col">CEP</th>
-        <th scope="col">UF</th>
-        <th scope="col">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(adr, index) in addresses" :key="index">
-        <th scope="row">{{ index + 1 }}</th>
-        <td>{{ adr.logradouro }}</td>
-        <td>{{ adr.bairro }}</td>
-        <td>{{ adr.localidade }}</td>
-        <td>{{ adr.cep }}</td>
-        <td>{{ adr.uf }}</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <b-table hover :fields="fields" :items="addresses" @row-clicked="setIndex">
+    </b-table>
+    <ModalEndereco v-if="index >= 0" :index="index" @close="index = null" />
+  </div>
 </template>
 
 <script>
 import EnderecoMixin from "../../mixins/address";
+import ModalEndereco from "../layout/modal/ModalEndereco.vue";
 
 export default {
   mixins: [EnderecoMixin],
+  components: {
+    ModalEndereco,
+  },
+  data() {
+    return {
+      index: null,
+      fields: [
+        { key: "logradouro", label: "Logradouro" },
+        { key: "bairro", label: "Bairro" },
+        { key: "localidade", label: "Cidade" },
+        { key: "cep", label: "CEP" },
+        { key: "uf", label: "UF" },
+      ],
+    };
+  },
+  methods: {
+    setIndex(_, index) {
+      this.index = index;
+    },
+  },
 };
 </script>
 
